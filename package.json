@@ -1,0 +1,28 @@
+{
+  "name": "ng-route-loader",
+  "version": "1.0.0",
+  "description": "Loader for statically lazy loading route dependencies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patrickhulce/webpack-ng-route-loader"
+  },
+  "keywords": [
+    "webpack",
+    "angular",
+    "angular-ui-router",
+    "oclazyload"
+  ],
+  "author": "Patrick Hulce <patrick.hulce@gmail.com> (http://patrickhulce.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patrickhulce/webpack-ng-route-loader/issues"
+  },
+  "homepage": "https://github.com/patrickhulce/webpack-ng-route-loader",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
