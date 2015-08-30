@@ -5,8 +5,7 @@ var cachedResolveObjTemplate = _.template(
   fs.readFileSync(__dirname + '/resolve.tmpl.js', 'utf8')
 );
 
-var f;
-module.exports = f = function (content) {
+module.exports = function (content) {
   this.cacheable(true);
 
   return content.replace(/require.asyncDependencies[^)]+\)/, function (line) {
@@ -14,7 +13,7 @@ module.exports = f = function (content) {
     var depsCSV = linePartial.substr(0, linePartial.indexOf(']'));
     var deps = depsCSV.split(',').map(function (dep) {
       return dep.replace(/['"\s]+/g, '');
-    });
+    }).filter(function (s) { return s.length > 0; });
 
     return cachedResolveObjTemplate({
       deps: deps,
@@ -22,5 +21,3 @@ module.exports = f = function (content) {
     });
   });
 };
-
-console.log(f("require.asyncDependencies(['webpack/my-thing', 'angular/thing/sdf.js', 'asdf/asdf/fsdf.js'])"));
